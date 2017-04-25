@@ -1,0 +1,45 @@
+body {
+	background-color: green;
+}
+
+@media only screen and (min-width: 40em) {
+	body {
+		background-color: blue;
+	}
+}
+
+aside {
+	width: 75%;
+	/*height: 200px;*/
+	border: solid 1px;
+	background-color: blue;
+	margin: 4px 2px 4px 6px;
+	padding: 2px 6px 2px 20px;
+}
+
+.bb {
+	box-sizing: border-box;
+	background-color: red;
+}
+
+#positioning p {
+	border: solid 1px;
+}
+
+#positioning p:nth-child(2) {
+	background-color: yellow;
+	position: relative;
+	left: 40px;
+	top: 40px;
+}
+
+.boxmodel {
+	box-sizing: border-box;
+	margin: 20px;
+	border: solid 2px;
+	padding: 20px;
+	height: 150px;
+	background-color: #e5e5e5;
+	text-align: center;
+	}
+}

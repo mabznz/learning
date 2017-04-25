@@ -1,0 +1,21 @@
+body {
+	padding: 0px;
+	margin: 0px;
+	background: rgb(200, 0, 0);
+}
+
+.button {
+	display: block;
+	height: 100px;
+    width: 300px;
+    background: #34696f;
+    border: 5px solid rgba(255, 0, 0, 0.5);
+    /*color: white;*/
+    color: (0, 0, 0, 0.55);
+    text-align: center;
+    font: bold 3.2em/100px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+a.button {
+	text-decoration: none;
+}
