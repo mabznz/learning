@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Let’s Make a Bar Chart</title>
+
+    </head>
+    <body>
+        <div class="chart"></div>
+        <link rel="stylesheet" href="simple_bar.css">
+        <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+        <script>
+
+            var imported_data = [4, 8, 15, 16, 23, 42];
+
+            // linear scale
+            var linear_scale = d3.scaleLinear()
+                .domain([0, d3.max(imported_data)])
+                .range([0,420]);
+
+            var chart = d3.select(".chart");
+
+            // data join
+            var bar = chart.selectAll("div");
+
+            // join data to selection
+            var barUpdate = bar.data(imported_data);
+
+            // for now only need enter as no exiting
+            var barEnter = barUpdate.enter().append("div");
+
+            // each bar is already bound to data
+            barEnter.style("width", function(d) {
+                return linear_scale(d) + "px";
+            });
+
+            barEnter.text(function(d) {
+                return d;
+            });
+            /*d3.select(".chart")
+                .selectAll("div")
+                    .data(data)
+                .enter().append("div")
+                    .style("width", function(d) { return linear_scale(d) + "px"; })
+                    .text(function(d) { return d; });*/
+        </script>
+    </body>
+</html>
