@@ -1,18 +1,22 @@
 var async = require('async');
+var request = require('request');
+
+// runs when all functions in first argument to series have completed
+
+function done(err, res, body) {
+  if (err) { throw err; }
+  console.log('results:' + res);
+
+}
 
 async.waterfall([
-  function(callback) {
-    console.log('cb1:' + callback)
-    callback(null, 'one', 'two');
+
+  function(next) {
+    request.post({uri: 'http://localhost:8080', body: '3' }, next)
   },
-  function(arg1, arg2, callback) {
-    console.log('cb2:' + callback)
-    callback(null, 'three');
+
+  function(res, body, next) {
+    console.log('body:' + body);
+    request.post({uri: 'http://localhost:8080', body: body }, next)
   },
-  function(arg1, callback) {
-    console.log('cb3:' + callback)
-    callback(null, 'done');
-  },
-], function(err, result) {
-  console.log('results:' + result);
-});
+], done);
